@@ -18,6 +18,9 @@
 var randomPokeIndex = Math.floor((Math.random() * 151) + 1)
 var tempPokemon = "https://pokeapi.co/api/v2/pokemon/" + randomPokeIndex;
 
+function notSomething (){
+  console.log("not doing anything")
+}
 
 $.ajax({
   url: tempPokemon,
