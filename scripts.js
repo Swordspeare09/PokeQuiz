@@ -11,6 +11,10 @@
 //     }
 // }
 
+//---------------_______________---------------Variables---------------_______________---------------
+var secondsRemaining = 15;
+
+
 // $.ajax(settings).done(function (response) {
 //     console.log(response);
 // });
@@ -26,3 +30,30 @@ $.ajax({
     $("#pic").attr("src", response.sprites.front_default);
     $("#name").text(response.name);
 });
+//game starts here ------
+function startGame() {
+  // questions and timer appear below start button
+  $(".hidden").show();
+  //timer will start counting down from 15 seconds and continue until time runs out or all questions answered
+  secondsRemaining = 15;
+  getFirstQuestion();
+  var timerInterval = setInterval(function() {
+      secondsRemaining--;
+      // timer will run until it reaches 0 seconds or all questions are answered
+      if (secondsRemaining > 0) {
+          console.log(secondsRemaining);
+          $("#timer").text(secondsRemaining);
+          $("#gameTimer").attr("value", secondsRemaining);
+      }
+      //once time reaches 0, the 
+      else {
+          stopGame();
+          clearInterval(timerInterval);
+          getPlayerName();
+          getScores();
+          // currentScore = 0
+          $(".hidden").hide();
+
+      }
+  }, 1000);
+} //---------------End of startGame function--------------

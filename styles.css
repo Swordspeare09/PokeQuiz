@@ -3,7 +3,15 @@ header {
     font-family: PocketWrench;
 }
 
-.waves-effect{
-    background-color: rgb(47, 233, 217);
+.waves-effect, .inputTextArea {
+    background-color: lightsteelblue;
     float: right;
+}
+
+#pic {
+    float: left;
+}
+
+.hidden {
+    text-align: center;
 }
