@@ -11,13 +11,11 @@
 //     }
 // }
 
-//---------------_______________---------------Variables---------------_______________---------------
-var secondsRemaining = 15;
-
-
 // $.ajax(settings).done(function (response) {
 //     console.log(response);
 // });
+//---------------_______________---------------Variables---------------_______________---------------
+var secondsRemaining = 15;
 var randomPokeIndex = Math.floor((Math.random() * 151) + 1)
 var tempPokemon = "https://pokeapi.co/api/v2/pokemon/" + randomPokeIndex;
 
@@ -30,7 +28,29 @@ $.ajax({
     $("#pic").attr("src", response.sprites.front_default);
     $("#name").text(response.name);
 });
-//game starts here ------
+
+
+//Event Listener for starting game
+$("#start-quiz").on("click", function(){
+
+  $("#start-quiz").attr("style", "display: none");
+  $("#quiz").attr("style", "display: block");
+
+});//Used for gettig random object drink
+
+// var settings = {
+//     "async": true,
+//     "crossDomain": true,
+//     "url": "https://the-cocktail-db.p.rapidapi.com/random.php",
+//     "method": "GET",
+//     "headers": {
+//         "x-rapidapi-host": "the-cocktail-db.p.rapidapi.com",
+//         "x-rapidapi-key": "0dd8aec848msh789cce3c0ec7bd5p1717d6jsn46bdb806c904"
+//     }
+// }
+
+
+//game starts here ----------------------------------------------------------------------------------
 function startGame() {
   // questions and timer appear below start button
   $(".hidden").show();
@@ -49,8 +69,6 @@ function startGame() {
       else {
           stopGame();
           clearInterval(timerInterval);
-          getPlayerName();
-          getScores();
           // currentScore = 0
           $(".hidden").hide();
 
