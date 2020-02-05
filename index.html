@@ -15,20 +15,41 @@
     <title>PokeQuiz</title>
 </head>
 <body>
-    <header >Poke<i class="fab fa-optin-monster"></i>Quiz</header>
-    <main class="container">
-        <div class="renderedImage">
-            <img id = "pic" src="" alt="">
+    <!--Using Bootstrap row and column method to center all the objects-->
+    <section class="row container">
+        <div class="col">
+
         </div>
-        <a class="waves-effect waves-light btn" id="start">Start Quiz!</a>
-        <p id="name"></p>
-        <form action="submit">
-            <input type="text">
-            <a class="waves-effect waves-light btn" id="start">Submit</a>
-        </form>
+        <div class="col flex-center flex-column">
+            <h3>Poke<i class="fab fa-optin-monster"></i>Quiz</h3>
+            <a id="start-quiz" class="waves-effect waves-light btn-large" style="display: block"></i>Start!</a>
+        </div>
+        <div class="col">
+
+        </div>
+    </section>
+    <!--Using Bootstrap row and column method to center all the objects-->
+    <main id="quiz" class="container row flex-center flex-column align-items-center" style ="display: none">
+        <div class="col">
+
+        </div>
+        <div class="col flex-center flex-column align-self-center">
+            <div class="renderedImage">
+                <img id="pic" src="" alt="">
+            </div>
+            <p id="name"></p>
+            <form action="submit">
+                <input type="text">
+                <a class="waves-effect waves-light btn" id="start">Submit</a>
+            </form>
+        </div>
+        <div class="col">
+
+        </div>
 
     </main>
-    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js" type="text/javascript"></script>
     <script src="https://kit.fontawesome.com/7d87cc47cb.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>

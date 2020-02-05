@@ -26,3 +26,12 @@ $.ajax({
     $("#pic").attr("src", response.sprites.front_default);
     $("#name").text(response.name);
 });
+
+
+//Event Listener for starting game
+$("#start-quiz").on("click", function(){
+
+  $("#start-quiz").attr("style", "display: none");
+  $("#quiz").attr("style", "display: block");
+
+});
