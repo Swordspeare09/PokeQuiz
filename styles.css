@@ -18,3 +18,7 @@ h3 {
     background-color: rgb(47, 233, 217);
     float: right;
 }
+
+input{
+  text-align: center;
+}

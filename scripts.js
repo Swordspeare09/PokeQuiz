@@ -16,6 +16,7 @@
 // });
 var randomPokeIndex = Math.floor((Math.random() * 151) + 1)
 var tempPokemon = "https://pokeapi.co/api/v2/pokemon/" + randomPokeIndex;
+var pokeName = "";
 
 $.ajax({
   url: tempPokemon,
@@ -23,8 +24,9 @@ $.ajax({
 }).then(function(response) {
   console.log(response);
 
+    pokeName = response.name
     $("#pic").attr("src", response.sprites.front_default);
-    $("#name").text(response.name);
+    $("#name").text(pokeName);
 });
 
 
@@ -33,5 +35,26 @@ $("#start-quiz").on("click", function(){
 
   $("#start-quiz").attr("style", "display: none");
   $("#quiz").attr("style", "display: block");
-
+  //This limits the amount of charcters the user can input to match the size of the pokemon name
+  $("#answer").attr("maxlength", pokeName.length);
 });
+
+$("#submit").on("click", function(){
+
+  var submittedAnswer = $("#answer").val();
+
+  //This makes the input lowercase for easily checking the user answer
+  submittedAnswer= submittedAnswer.toLowerCase();
+
+  if(submittedAnswer === pokeName)
+  {
+    console.log("you win!");
+
+  }
+  else
+  {
+    M.toast({ html: "It wasn't very effective..." })
+  }
+  
+
+})
