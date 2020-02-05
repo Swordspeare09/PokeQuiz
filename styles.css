@@ -1,0 +1,9 @@
+header {
+    text-align: center;
+    font-family: PocketWrench;
+}
+
+.waves-effect{
+    background-color: rgb(47, 233, 217);
+    float: right;
+}
