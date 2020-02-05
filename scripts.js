@@ -19,6 +19,7 @@ var secondsRemaining = 15;
 var randomPokeIndex = Math.floor((Math.random() * 151) + 1)
 var tempPokemon = "https://pokeapi.co/api/v2/pokemon/" + randomPokeIndex;
 var pokeName = "";
+var pokeImage = document.getElementById("pic");
 
 $.ajax({
   url: tempPokemon,
@@ -28,6 +29,7 @@ $.ajax({
 
     pokeName = response.name
     $("#pic").attr("src", response.sprites.front_default);
+    //Currently only shakes the image on time.
     $("#name").text(pokeName);
 });
 
@@ -52,11 +54,15 @@ $("#submit").on("click", function(){
   if(submittedAnswer === pokeName)
   {
     console.log("you win!");
+    //Removes the shake animation when the input is correct
+    pokeImage.classList.remove("apply-shake");
 
   }
   else
   {
-    M.toast({ html: "It wasn't very effective..." })
+    M.toast({ html: "It wasn't very effective..." });
+    //Makes the image shake after the first incorrect guess
+    pokeImage.classList.add("apply-shake");
   }
   
 
@@ -80,7 +86,6 @@ function startGame() {
       secondsRemaining--;
       // timer will run until it reaches 0 seconds or all questions are answered
       if (secondsRemaining > 0) {
-          console.log(secondsRemaining);
           $("#timer").text(secondsRemaining);
           $("#gameTimer").attr("value", secondsRemaining);
       }
@@ -90,6 +95,8 @@ function startGame() {
           clearInterval(timerInterval);
           // currentScore = 0
           $(".hidden").hide();
+          //removes the shake animation when the timer reaches 0
+        pokeImage.classList.remove("apply-shake")
 
       }
   }, 1000);
