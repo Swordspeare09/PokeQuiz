@@ -32,7 +32,7 @@ $.ajax({
 
 //Event Listener for starting game
 $("#start-quiz").on("click", function(){
-
+  startGame();
   $("#start-quiz").attr("style", "display: none");
   $("#quiz").attr("style", "display: block");
 
@@ -49,6 +49,12 @@ $("#start-quiz").on("click", function(){
 //     }
 // }
 
+function stopGame() {
+  $("#timer").text(0);
+  $("#gameTimer").attr("value", 0);
+  secondsRemaining = null;
+}
+
 
 //game starts here ----------------------------------------------------------------------------------
 function startGame() {
@@ -56,7 +62,6 @@ function startGame() {
   $(".hidden").show();
   //timer will start counting down from 15 seconds and continue until time runs out or all questions answered
   secondsRemaining = 15;
-  getFirstQuestion();
   var timerInterval = setInterval(function() {
       secondsRemaining--;
       // timer will run until it reaches 0 seconds or all questions are answered

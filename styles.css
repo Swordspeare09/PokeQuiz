@@ -1,17 +1,24 @@
-header {
+.flex-column {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .flex-center {
+    justify-content: center;
+    align-items: center;
+    
+  }
+  
+  h3 {
+      text-align: center;
+  }
+  
+  .waves-effect{
+      background-color: rgb(47, 233, 217);
+      float: right;
+  }
+  
+  .timerDiv {
     text-align: center;
-    font-family: PocketWrench;
-}
-
-.waves-effect, .inputTextArea {
-    background-color: lightsteelblue;
-    float: right;
-}
-
-#pic {
-    float: left;
-}
-
-.hidden {
-    text-align: center;
+    line-height: 0;
 }
