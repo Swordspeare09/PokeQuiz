@@ -9,17 +9,39 @@
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <!--Google Fonts documentation-->
     <link href="https://fonts.googleapis.com/css?family=Literata&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="styles.css">
     <title>PokeQuiz</title>
 </head>
 <body>
-    <main class="container">
-        <div id="start" class="btn">Start Quiz!</div>
-        <img id = "pic" src="" alt="">
-        <p id="name"></p>
+    <section class="row container">
+        <div class="col">
+
+        </div>
+        <div class="col flex-center flex-column">
+            <a id="start-quiz" class="waves-effect waves-light btn-large" style="display: block"><i
+                class="material-icons right"></i>Start!</a>
+            </div>
+        <div class="col">
+
+        </div>
+    </section>
+    
+    <main id="quiz" class="container row flex-center flex-column align-items-center" style ="display: none">
+        <div class="col">
+
+        </div>
+        <div class="col flex-center flex-column align-self-center">
+            <img id="pic" src="" alt="">
+            <p id="name"></p>
+        </div>
+        <div class="col">
+
+        </div>
 
     </main>
-    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js" type="text/javascript"></script>
     <script src="scripts.js"></script>
 </body>
