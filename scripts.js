@@ -14,6 +14,8 @@
 // $.ajax(settings).done(function (response) {
 //     console.log(response);
 // });
+//---------------_______________---------------Variables---------------_______________---------------
+var secondsRemaining = 15;
 var randomPokeIndex = Math.floor((Math.random() * 151) + 1)
 var tempPokemon = "https://pokeapi.co/api/v2/pokemon/" + randomPokeIndex;
 var pokeName = "";
@@ -33,6 +35,7 @@ $.ajax({
 //Event Listener for starting game
 $("#start-quiz").on("click", function(){
 
+  startGame();
   $("#start-quiz").attr("style", "display: none");
   $("#quiz").attr("style", "display: block");
   //This limits the amount of charcters the user can input to match the size of the pokemon name
@@ -57,4 +60,37 @@ $("#submit").on("click", function(){
   }
   
 
+
 })
+
+function stopGame() {
+  $("#timer").text(0);
+  $("#gameTimer").attr("value", 0);
+  secondsRemaining = null;
+}
+
+
+//game starts here ----------------------------------------------------------------------------------
+function startGame() {
+  // questions and timer appear below start button
+  $(".hidden").show();
+  //timer will start counting down from 15 seconds and continue until time runs out or all questions answered
+  secondsRemaining = 15;
+  var timerInterval = setInterval(function() {
+      secondsRemaining--;
+      // timer will run until it reaches 0 seconds or all questions are answered
+      if (secondsRemaining > 0) {
+          console.log(secondsRemaining);
+          $("#timer").text(secondsRemaining);
+          $("#gameTimer").attr("value", secondsRemaining);
+      }
+      //once time reaches 0, the 
+      else {
+          stopGame();
+          clearInterval(timerInterval);
+          // currentScore = 0
+          $(".hidden").hide();
+
+      }
+  }, 1000);
+} //---------------End of startGame function--------------

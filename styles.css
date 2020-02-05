@@ -1,4 +1,26 @@
 .flex-column {
+
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .flex-center {
+    justify-content: center;
+    align-items: center;
+    
+  }
+  
+  h3 {
+      text-align: center;
+  }
+  
+  .waves-effect{
+      background-color: rgb(47, 233, 217);
+      float: right;
+  }
+  
+  .timerDiv {
+
   display: flex;
   flex-direction: column;
 }
@@ -10,9 +32,12 @@
 }
 
 h3 {
+
     text-align: center;
-    font-family: PocketWrench;
+    line-height: 0;
 }
+
+
 
 .waves-effect{
     background-color: rgb(47, 233, 217);
