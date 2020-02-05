@@ -1,4 +1,5 @@
 .flex-column {
+
     display: flex;
     flex-direction: column;
   }
@@ -19,6 +20,27 @@
   }
   
   .timerDiv {
+
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-center {
+  justify-content: center;
+  align-items: center;
+  
+}
+
+h3 {
+
     text-align: center;
     line-height: 0;
 }
+
+
+
+.waves-effect{
+    background-color: rgb(47, 233, 217);
+    float: right;
+}
+

@@ -32,6 +32,7 @@ $.ajax({
 
 //Event Listener for starting game
 $("#start-quiz").on("click", function(){
+
   startGame();
   $("#start-quiz").attr("style", "display: none");
   $("#quiz").attr("style", "display: block");
@@ -80,3 +81,9 @@ function startGame() {
       }
   }, 1000);
 } //---------------End of startGame function--------------
+
+  $("#start-quiz").attr("style", "display: none");
+  $("#quiz").attr("style", "display: block");
+
+});
+
