@@ -37,18 +37,7 @@ $("#start-quiz").on("click", function(){
   $("#start-quiz").attr("style", "display: none");
   $("#quiz").attr("style", "display: block");
 
-});//Used for gettig random object drink
-
-// var settings = {
-//     "async": true,
-//     "crossDomain": true,
-//     "url": "https://the-cocktail-db.p.rapidapi.com/random.php",
-//     "method": "GET",
-//     "headers": {
-//         "x-rapidapi-host": "the-cocktail-db.p.rapidapi.com",
-//         "x-rapidapi-key": "0dd8aec848msh789cce3c0ec7bd5p1717d6jsn46bdb806c904"
-//     }
-// }
+});
 
 function stopGame() {
   $("#timer").text(0);
@@ -82,8 +71,5 @@ function startGame() {
   }, 1000);
 } //---------------End of startGame function--------------
 
-  $("#start-quiz").attr("style", "display: none");
-  $("#quiz").attr("style", "display: block");
 
-});
 
