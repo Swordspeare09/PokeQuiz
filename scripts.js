@@ -14,10 +14,8 @@
 // $.ajax(settings).done(function (response) {
 //     console.log(response);
 // });
-
 var randomPokeIndex = Math.floor((Math.random() * 151) + 1)
 var tempPokemon = "https://pokeapi.co/api/v2/pokemon/" + randomPokeIndex;
-
 
 $.ajax({
   url: tempPokemon,
