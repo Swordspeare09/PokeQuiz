@@ -31,6 +31,12 @@ $.ajax({
     $("#name").text(pokeName);
 });
 
+//this function will only run if kid friendly toggle is switched to "No"
+function beerTime() {
+  if (status === "No") {
+//Run cocktail API after wrong answer
+}
+}
 
 //Event Listener for starting game
 $("#start-quiz").on("click", function(){
