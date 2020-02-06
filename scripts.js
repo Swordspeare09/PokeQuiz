@@ -1,39 +1,42 @@
-//Used for gettig random object drink
-
-// var settings = {
-//     "async": true,
-//     "crossDomain": true,
-//     "url": "https://the-cocktail-db.p.rapidapi.com/random.php",
-//     "method": "GET",
-//     "headers": {
-//         "x-rapidapi-host": "the-cocktail-db.p.rapidapi.com",
-//         "x-rapidapi-key": "0dd8aec848msh789cce3c0ec7bd5p1717d6jsn46bdb806c904"
-//     }
-// }
-
-// $.ajax(settings).done(function (response) {
-//     console.log(response);
-// });
 //---------------_______________---------------Variables---------------_______________---------------
 var secondsRemaining = 15;
 var randomPokeIndex = Math.floor(Math.random() * 151 + 1);
 var tempPokemon = "https://pokeapi.co/api/v2/pokemon/" + randomPokeIndex;
 var pokeName = "";
-var pokeImage = document.getElementById("pic");
 var statusToggle = document.querySelector("#statusToggle");
 var toggleSpan = document.querySelector("#status");
-
+//ajax call for pokemon
 $.ajax({
   url: tempPokemon,
   method: "GET"
 }).then(function(response) {
   console.log(response);
 
-  pokeName = response.name;
+  pokeName = response.name
   $("#pic").attr("src", response.sprites.front_default);
-  //Currently only shakes the image on time.
   $("#name").text(pokeName);
 });
+//ajax call settings for cocktail
+var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://the-cocktail-db.p.rapidapi.com/random.php",
+  "method": "GET",
+  "headers": {
+    "x-rapidapi-host": "the-cocktail-db.p.rapidapi.com",
+    "x-rapidapi-key": "ca6e01789emsh0efb5a3c9026fb0p14049fjsn4a80f2b8c012"
+  }
+}
+//     function  haveADrink(){
+// $.ajax(settings).done(function (response) {
+//   console.log(response);
+//   var randomDrink = response.drinks[0].strDrink
+//   var randomDrinkImage = response.drinks[0].strDrinkThumb
+//   $("#pic").attr("src", randomDrinkImage);
+//   $("#hiddenH4").text(randomDrink);
+// });
+// }
+
 
 //this function will only run if kid friendly toggle is switched to "No"
 function beerTime() {
@@ -86,6 +89,7 @@ function stopGame() {
   $("#timer").text(0);
   $("#gameTimer").attr("value", 0);
   secondsRemaining = null;
+  haveADrink();
 }
 
 //game starts here ----------------------------------------------------------------------------------
