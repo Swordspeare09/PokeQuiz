@@ -19,21 +19,41 @@ var secondsRemaining = 15;
 var randomPokeIndex = Math.floor((Math.random() * 151) + 1)
 var tempPokemon = "https://pokeapi.co/api/v2/pokemon/" + randomPokeIndex;
 var pokeName = "";
+var statusToggle = document.querySelector("#statusToggle");
+var toggleSpan = document.querySelector("#status");
+
 
 $.ajax({
   url: tempPokemon,
   method: "GET"
-}).then(function(response) {
+}).then(function (response) {
   console.log(response);
 
-    pokeName = response.name
-    $("#pic").attr("src", response.sprites.front_default);
-    $("#name").text(pokeName);
+  pokeName = response.name
+  $("#pic").attr("src", response.sprites.front_default);
+  $("#name").text(pokeName);
 });
 
+//this function will only run if kid friendly toggle is switched to "No"
+function beerTime() {
+  if (status === "No") {
+    //Run cocktail API after wrong answer
+  }
+}
+//this will change the status text based on the check box status
+function toggleStatus(event) {
+  var checked = event.target.checked;
+
+  if (checked) {
+    status = "Yes";
+  } else {
+    status = "No";
+  }
+  toggleSpan.textContent = status;
+}
 
 //Event Listener for starting game
-$("#start-quiz").on("click", function(){
+$("#start-quiz").on("click", function () {
 
   startGame();
   $("#start-quiz").attr("style", "display: none");
@@ -42,23 +62,22 @@ $("#start-quiz").on("click", function(){
   $("#answer").attr("maxlength", pokeName.length);
 });
 
-$("#submit").on("click", function(){
+$("#submit").on("click", function () {
 
   var submittedAnswer = $("#answer").val();
 
   //This makes the input lowercase for easily checking the user answer
-  submittedAnswer= submittedAnswer.toLowerCase();
+  submittedAnswer = submittedAnswer.toLowerCase();
 
-  if(submittedAnswer === pokeName)
-  {
+  if (submittedAnswer === pokeName) {
     console.log("you win!");
 
+  } else {
+    M.toast({
+      html: "It wasn't very effective..."
+    })
   }
-  else
-  {
-    M.toast({ html: "It wasn't very effective..." })
-  }
-  
+
 
 
 })
@@ -76,21 +95,23 @@ function startGame() {
   $(".hidden").show();
   //timer will start counting down from 15 seconds and continue until time runs out or all questions answered
   secondsRemaining = 15;
-  var timerInterval = setInterval(function() {
-      secondsRemaining--;
-      // timer will run until it reaches 0 seconds or all questions are answered
-      if (secondsRemaining > 0) {
-          console.log(secondsRemaining);
-          $("#timer").text(secondsRemaining);
-          $("#gameTimer").attr("value", secondsRemaining);
-      }
-      //once time reaches 0, the 
-      else {
-          stopGame();
-          clearInterval(timerInterval);
-          // currentScore = 0
-          $(".hidden").hide();
+  var timerInterval = setInterval(function () {
+    secondsRemaining--;
+    // timer will run until it reaches 0 seconds or all questions are answered
+    if (secondsRemaining > 0) {
+      console.log(secondsRemaining);
+      $("#timer").text(secondsRemaining);
+      $("#gameTimer").attr("value", secondsRemaining);
+    }
+    //once time reaches 0, the 
+    else {
+      stopGame();
+      clearInterval(timerInterval);
+      // currentScore = 0
+      $(".hidden").hide();
 
-      }
+    }
   }, 1000);
 } //---------------End of startGame function--------------
+
+statusToggle.addEventListener("change", toggleStatus);

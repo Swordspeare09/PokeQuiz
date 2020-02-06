@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,6 +15,7 @@
     <link rel="stylesheet" href="styles.css">
     <title>PokeQuiz</title>
 </head>
+
 <body>
     <!--Using Bootstrap row and column method to center all the objects-->
     <section class="row container">
@@ -22,6 +24,11 @@
         </div>
         <div class="col flex-center flex-column">
             <h3>Poke<i class="fab fa-optin-monster"></i>Quiz</h3>
+            <label id="switch" for="statusToggle">
+                <input checked type="checkbox" name="statusToggle" id="statusToggle" />
+                <span id="toggle"></span>
+            </label>
+            <div id="statusText">Kid Friendly? <span id="status">Yes</span></div>
             <a id="start-quiz" class="waves-effect waves-light btn-large" style="display: block"></i>Start!</a>
         </div>
         <div class="col">
@@ -29,7 +36,7 @@
         </div>
     </section>
     <!--Using Bootstrap row and column method to center all the objects-->
-    <main id="quiz" class="container row flex-center flex-column align-items-center" style ="display: none">
+    <main id="quiz" class="container row flex-center flex-column align-items-center" style="display: none">
         <div class="col">
 
         </div>
@@ -38,13 +45,13 @@
                 <img id="pic" src="" alt="">
             </div>
             <p id="name"></p>
-            <form action="submit" >
+            <form action="submit">
                 <div class="timerDiv">
                     <h1 class="hidden" id="timer">15</h1>
                     <h4>Seconds</h4>
                 </div>
-                <input id="answer"type="text">
-                <a class="waves-effect waves-light btn" id="submit" >Submit</a>
+                <input id="answer" type="text">
+                <a class="waves-effect waves-light btn" id="submit">Submit</a>
             </form>
         </div>
         <div class="col">
@@ -59,6 +66,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="scripts.js"></script>
 </body>
+
 </html>
-
-
