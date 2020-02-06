@@ -5,16 +5,35 @@ var tempPokemon = "https://pokeapi.co/api/v2/pokemon/" + randomPokeIndex;
 var pokeName = "";
 var statusToggle = document.querySelector("#statusToggle");
 var toggleSpan = document.querySelector("#status");
+var pokeImage = document.querySelector("#pic");
 //ajax call for pokemon
 $.ajax({
   url: tempPokemon,
   method: "GET"
 }).then(function(response) {
-  console.log(response);
 
   pokeName = response.name
   $("#pic").attr("src", response.sprites.front_default);
   $("#name").text(pokeName);
+  
+});
+//ajax call for cocktail
+var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://the-cocktail-db.p.rapidapi.com/random.php",
+  "method": "GET",
+  "headers": {
+    "x-rapidapi-host": "the-cocktail-db.p.rapidapi.com",
+    "x-rapidapi-key": "ca6e01789emsh0efb5a3c9026fb0p14049fjsn4a80f2b8c012"
+  }
+}
+$.ajax(settings).done(function (response) {
+  console.log(response);
+  var randomDrink = response.drinks[0].strDrink
+  console.log(randomDrink)
+  var randomDrinkImage = response.drinks[0].strDrinkThumb
+  console.log(randomDrinkImage)
 });
 //ajax call settings for cocktail
 var settings = {
@@ -27,15 +46,15 @@ var settings = {
     "x-rapidapi-key": "ca6e01789emsh0efb5a3c9026fb0p14049fjsn4a80f2b8c012"
   }
 }
-//     function  haveADrink(){
-// $.ajax(settings).done(function (response) {
-//   console.log(response);
-//   var randomDrink = response.drinks[0].strDrink
-//   var randomDrinkImage = response.drinks[0].strDrinkThumb
-//   $("#pic").attr("src", randomDrinkImage);
-//   $("#hiddenH4").text(randomDrink);
-// });
-// }
+    function  haveADrink(){
+$.ajax(settings).done(function (response) {
+  console.log(response);
+  var randomDrink = response.drinks[0].strDrink
+  var randomDrinkImage = response.drinks[0].strDrinkThumb
+  $("#pic").attr("src", randomDrinkImage);
+  $("#hiddenH4").text(randomDrink);
+});
+}
 
 
 //this function will only run if kid friendly toggle is switched to "No"
@@ -73,23 +92,27 @@ $("#submit").on("click", function() {
   submittedAnswer = submittedAnswer.toLowerCase();
 
   if (submittedAnswer === pokeName) {
+
     //Removes the shake animation when the input is correct
     pokeImage.classList.remove("apply-shake");
     stopGame();
     $("#pic").attr("src", "assets/Pokeballimg.png");
     pokeImage.classList.add("apply-shake");
+
   } else {
-    M.toast({ html: "It wasn't very effective..." });
-    //Makes the image shake after the first incorrect guess
+    M.toast({
+      html: "It wasn't very effective..."
+    })
     pokeImage.classList.add("apply-shake");
   }
-});
+
+})
 
 function stopGame() {
   $("#timer").text(0);
   $("#gameTimer").attr("value", 0);
   secondsRemaining = null;
-  // haveADrink();
+  haveADrink();
 }
 
 //game starts here ----------------------------------------------------------------------------------
