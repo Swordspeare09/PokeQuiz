@@ -1,40 +1,50 @@
-//Used for gettig random object drink
-
-// var settings = {
-//     "async": true,
-//     "crossDomain": true,
-//     "url": "https://the-cocktail-db.p.rapidapi.com/random.php",
-//     "method": "GET",
-//     "headers": {
-//         "x-rapidapi-host": "the-cocktail-db.p.rapidapi.com",
-//         "x-rapidapi-key": "0dd8aec848msh789cce3c0ec7bd5p1717d6jsn46bdb806c904"
-//     }
-// }
-
-// $.ajax(settings).done(function (response) {
-//     console.log(response);
-// });
 //---------------_______________---------------Variables---------------_______________---------------
 var secondsRemaining = 15;
 var randomPokeIndex = Math.floor(Math.random() * 151 + 1);
 var tempPokemon = "https://pokeapi.co/api/v2/pokemon/" + randomPokeIndex;
 var pokeName = "";
-var pokeImage = document.getElementById("pic");
 var statusToggle = document.querySelector("#statusToggle");
 var toggleSpan = document.querySelector("#status");
+<<<<<<< HEAD
+//ajax call for pokemon
+=======
 
+>>>>>>> origin
 $.ajax({
   url: tempPokemon,
   method: "GET"
 }).then(function(response) {
   console.log(response);
 
+<<<<<<< HEAD
+  pokeName = response.name
+  $("#pic").attr("src", response.sprites.front_default);
+  $("#name").text(pokeName);
+});
+//ajax call for cocktail
+var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://the-cocktail-db.p.rapidapi.com/random.php",
+  "method": "GET",
+  "headers": {
+    "x-rapidapi-host": "the-cocktail-db.p.rapidapi.com",
+    "x-rapidapi-key": "ca6e01789emsh0efb5a3c9026fb0p14049fjsn4a80f2b8c012"
+  }
+}
+$.ajax(settings).done(function (response) {
+  console.log(response);
+  var randomDrink = response.drinks[0].strDrink
+  console.log(randomDrink)
+  var randomDrinkImage = response.drinks[0].strDrinkThumb
+  console.log(randomDrinkImage)
+=======
   pokeName = response.name;
   $("#pic").attr("src", response.sprites.front_default);
   //Currently only shakes the image on time.
   $("#name").text(pokeName);
+>>>>>>> origin
 });
-
 //this function will only run if kid friendly toggle is switched to "No"
 function beerTime() {
   if (status === "No") {
@@ -70,6 +80,19 @@ $("#submit").on("click", function() {
   submittedAnswer = submittedAnswer.toLowerCase();
 
   if (submittedAnswer === pokeName) {
+<<<<<<< HEAD
+    console.log("you win!");
+
+  } else {
+    M.toast({
+      html: "It wasn't very effective..."
+    })
+  }
+
+
+
+})
+=======
     //Removes the shake animation when the input is correct
     pokeImage.classList.remove("apply-shake");
     stopGame();
@@ -81,6 +104,7 @@ $("#submit").on("click", function() {
     pokeImage.classList.add("apply-shake");
   }
 });
+>>>>>>> origin
 
 function stopGame() {
   $("#timer").text(0);
@@ -94,6 +118,17 @@ function startGame() {
   $(".hidden").show();
   //timer will start counting down from 15 seconds and continue until time runs out or all questions answered
   secondsRemaining = 15;
+<<<<<<< HEAD
+  var timerInterval = setInterval(function () {
+    secondsRemaining--;
+    // timer will run until it reaches 0 seconds or all questions are answered
+    if (secondsRemaining > 0) {
+      console.log(secondsRemaining);
+      $("#timer").text(secondsRemaining);
+      $("#gameTimer").attr("value", secondsRemaining);
+    }
+    //once time reaches 0, the 
+=======
   var timerInterval = setInterval(function() {
     secondsRemaining--;
     pokeImage.classList.remove("apply-shake");
@@ -103,14 +138,19 @@ function startGame() {
       $("#gameTimer").attr("value", secondsRemaining);
     }
     //once time reaches 0, the
+>>>>>>> origin
     else {
       stopGame();
       clearInterval(timerInterval);
       // currentScore = 0
       $(".hidden").hide();
+<<<<<<< HEAD
+
+=======
       $(".shown").show();
       //removes the shake animation when the timer reaches 0
       pokeImage.classList.remove("apply-shake");
+>>>>>>> origin
     }
   }, 1000);
 } //---------------End of startGame function--------------
