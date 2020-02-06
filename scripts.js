@@ -20,11 +20,14 @@ var randomPokeIndex = Math.floor((Math.random() * 151) + 1)
 var tempPokemon = "https://pokeapi.co/api/v2/pokemon/" + randomPokeIndex;
 var pokeName = "";
 var pokeImage = document.getElementById("pic");
+var statusToggle = document.querySelector("#statusToggle");
+var toggleSpan = document.querySelector("#status");
+
 
 $.ajax({
   url: tempPokemon,
   method: "GET"
-}).then(function(response) {
+}).then(function (response) {
   console.log(response);
 
     pokeName = response.name
@@ -33,9 +36,26 @@ $.ajax({
     $("#name").text(pokeName);
 });
 
+//this function will only run if kid friendly toggle is switched to "No"
+function beerTime() {
+  if (status === "No") {
+    //Run cocktail API after wrong answer
+  }
+}
+//this will change the status text based on the check box status
+function toggleStatus(event) {
+  var checked = event.target.checked;
+
+  if (checked) {
+    status = "Yes";
+  } else {
+    status = "No";
+  }
+  toggleSpan.textContent = status;
+}
 
 //Event Listener for starting game
-$("#start-quiz").on("click", function(){
+$("#start-quiz").on("click", function () {
 
   startGame();
   $("#start-quiz").attr("style", "display: none");
@@ -44,20 +64,19 @@ $("#start-quiz").on("click", function(){
   $("#answer").attr("maxlength", pokeName.length);
 });
 
-$("#submit").on("click", function(){
+$("#submit").on("click", function () {
 
   var submittedAnswer = $("#answer").val();
 
   //This makes the input lowercase for easily checking the user answer
-  submittedAnswer= submittedAnswer.toLowerCase();
+  submittedAnswer = submittedAnswer.toLowerCase();
 
-  if(submittedAnswer === pokeName)
-  {
+  if (submittedAnswer === pokeName) {
     console.log("you win!");
     //Removes the shake animation when the input is correct
     pokeImage.classList.remove("apply-shake");
 
-  }
+  } 
   else
   {
     M.toast({ html: "It wasn't very effective..." });
@@ -65,8 +84,6 @@ $("#submit").on("click", function(){
     pokeImage.classList.add("apply-shake");
   }
   
-
-
 })
 
 function stopGame() {
@@ -101,3 +118,5 @@ function startGame() {
       }
   }, 1000);
 } //---------------End of startGame function--------------
+
+statusToggle.addEventListener("change", toggleStatus);

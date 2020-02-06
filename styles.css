@@ -1,25 +1,30 @@
 .flex-column {
 
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .flex-center {
-    justify-content: center;
-    align-items: center;
-    
-  }
-  
-  h3 {
-      text-align: center;
-  }
-  
-  .waves-effect{
-      background-color: rgb(47, 233, 217);
-      float: right;
-  }
-  
-  .timerDiv {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-center {
+  justify-content: center;
+  align-items: center;
+
+}
+
+h3 {
+  text-align: center;
+}
+
+.waves-effect {
+  background-color: rgb(47, 233, 217);
+  float: right;
+}
+
+#pic{
+  height: 200px;
+  width: 200px;
+
+}
+.timerDiv {
 
   display: flex;
   flex-direction: column;
@@ -28,29 +33,13 @@
 .flex-center {
   justify-content: center;
   align-items: center;
-  
+
 }
 
 h3 {
 
-    text-align: center;
-    line-height: 0;
-}
-
-#pic{
-  height: 200px;
-  width: 200px;
-
-}
-
-
-.waves-effect{
-    background-color: rgb(47, 233, 217);
-    float: right;
-}
-
-input{
   text-align: center;
+  line-height: 0;
 }
 
 /* These are CSS values for shaking an image */
@@ -75,4 +64,13 @@ input{
 .apply-shake {
     animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
     animation-iteration-count: infinite;
+}
+
+.waves-effect {
+  background-color: rgb(47, 233, 217);
+  float: right;
+}
+
+input {
+  text-align: center;
 }
