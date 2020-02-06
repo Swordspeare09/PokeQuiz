@@ -35,12 +35,29 @@ $.ajax(settings).done(function (response) {
   var randomDrinkImage = response.drinks[0].strDrinkThumb
   console.log(randomDrinkImage)
 });
-//this function will only run if kid friendly toggle is switched to "No"
-function beerTime() {
-  if (status === "No") {
-    //Run cocktail API after wrong answer
+//ajax call settings for cocktail
+var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://the-cocktail-db.p.rapidapi.com/random.php",
+  "method": "GET",
+  "headers": {
+    "x-rapidapi-host": "the-cocktail-db.p.rapidapi.com",
+    "x-rapidapi-key": "ca6e01789emsh0efb5a3c9026fb0p14049fjsn4a80f2b8c012"
   }
 }
+function  haveADrink(){
+  $.ajax(settings).done(function (response) {
+    console.log(response);
+    var randomDrink = response.drinks[0].strDrink
+    var randomDrinkImage = response.drinks[0].strDrinkThumb
+    $("#pic").attr("src", randomDrinkImage);
+    $("#hiddenH4").text(randomDrink);
+    $("#hiddenH4").show();
+    $("#name").hide();
+  });
+}
+
 //this will change the status text based on the check box status
 function toggleStatus(event) {
   var checked = event.target.checked;
@@ -51,6 +68,14 @@ function toggleStatus(event) {
     status = "No";
   }
   toggleSpan.textContent = status;
+}
+
+//this function will only run if kid friendly toggle is switched to "No"
+function beerTime() {
+  if (status === "No") {
+    //Run cocktail API after wrong answer
+    haveADrink();
+  }
 }
 
 //Event Listener for starting game
