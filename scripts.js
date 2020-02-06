@@ -27,15 +27,15 @@ var settings = {
     "x-rapidapi-key": "ca6e01789emsh0efb5a3c9026fb0p14049fjsn4a80f2b8c012"
   }
 }
-//     function  haveADrink(){
-// $.ajax(settings).done(function (response) {
-//   console.log(response);
-//   var randomDrink = response.drinks[0].strDrink
-//   var randomDrinkImage = response.drinks[0].strDrinkThumb
-//   $("#pic").attr("src", randomDrinkImage);
-//   $("#hiddenH4").text(randomDrink);
-// });
-// }
+    function  haveADrink(){
+$.ajax(settings).done(function (response) {
+  console.log(response);
+  var randomDrink = response.drinks[0].strDrink
+  var randomDrinkImage = response.drinks[0].strDrinkThumb
+  $("#pic").attr("src", randomDrinkImage);
+  $("#hiddenH4").text(randomDrink);
+});
+}
 
 
 //this function will only run if kid friendly toggle is switched to "No"
