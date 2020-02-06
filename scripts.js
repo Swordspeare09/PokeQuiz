@@ -5,21 +5,17 @@ var tempPokemon = "https://pokeapi.co/api/v2/pokemon/" + randomPokeIndex;
 var pokeName = "";
 var statusToggle = document.querySelector("#statusToggle");
 var toggleSpan = document.querySelector("#status");
-<<<<<<< HEAD
+var pokeImage = document.querySelector("#pic");
 //ajax call for pokemon
-=======
-
->>>>>>> origin
 $.ajax({
   url: tempPokemon,
   method: "GET"
 }).then(function(response) {
-  console.log(response);
 
-<<<<<<< HEAD
   pokeName = response.name
   $("#pic").attr("src", response.sprites.front_default);
   $("#name").text(pokeName);
+  
 });
 //ajax call for cocktail
 var settings = {
@@ -38,12 +34,6 @@ $.ajax(settings).done(function (response) {
   console.log(randomDrink)
   var randomDrinkImage = response.drinks[0].strDrinkThumb
   console.log(randomDrinkImage)
-=======
-  pokeName = response.name;
-  $("#pic").attr("src", response.sprites.front_default);
-  //Currently only shakes the image on time.
-  $("#name").text(pokeName);
->>>>>>> origin
 });
 //this function will only run if kid friendly toggle is switched to "No"
 function beerTime() {
@@ -80,31 +70,21 @@ $("#submit").on("click", function() {
   submittedAnswer = submittedAnswer.toLowerCase();
 
   if (submittedAnswer === pokeName) {
-<<<<<<< HEAD
-    console.log("you win!");
 
-  } else {
-    M.toast({
-      html: "It wasn't very effective..."
-    })
-  }
-
-
-
-})
-=======
     //Removes the shake animation when the input is correct
     pokeImage.classList.remove("apply-shake");
     stopGame();
     $("#pic").attr("src", "assets/Pokeballimg.png");
     pokeImage.classList.add("apply-shake");
+
   } else {
-    M.toast({ html: "It wasn't very effective..." });
-    //Makes the image shake after the first incorrect guess
+    M.toast({
+      html: "It wasn't very effective..."
+    })
     pokeImage.classList.add("apply-shake");
   }
-});
->>>>>>> origin
+
+})
 
 function stopGame() {
   $("#timer").text(0);
@@ -118,17 +98,6 @@ function startGame() {
   $(".hidden").show();
   //timer will start counting down from 15 seconds and continue until time runs out or all questions answered
   secondsRemaining = 15;
-<<<<<<< HEAD
-  var timerInterval = setInterval(function () {
-    secondsRemaining--;
-    // timer will run until it reaches 0 seconds or all questions are answered
-    if (secondsRemaining > 0) {
-      console.log(secondsRemaining);
-      $("#timer").text(secondsRemaining);
-      $("#gameTimer").attr("value", secondsRemaining);
-    }
-    //once time reaches 0, the 
-=======
   var timerInterval = setInterval(function() {
     secondsRemaining--;
     pokeImage.classList.remove("apply-shake");
@@ -138,19 +107,14 @@ function startGame() {
       $("#gameTimer").attr("value", secondsRemaining);
     }
     //once time reaches 0, the
->>>>>>> origin
     else {
       stopGame();
       clearInterval(timerInterval);
       // currentScore = 0
       $(".hidden").hide();
-<<<<<<< HEAD
-
-=======
       $(".shown").show();
       //removes the shake animation when the timer reaches 0
       pokeImage.classList.remove("apply-shake");
->>>>>>> origin
     }
   }, 1000);
 } //---------------End of startGame function--------------
