@@ -34,6 +34,38 @@ $.ajax(settings).done(function (response) {
   console.log(randomDrink)
   var randomDrinkImage = response.drinks[0].strDrinkThumb
   console.log(randomDrinkImage)
+  var ingredient1 = response.drinks[0].strIngredient1
+  var ingredient2 = response.drinks[0].strIngredient2
+  var ingredient3 = response.drinks[0].strIngredient3
+  var ingredient4 = response.drinks[0].strIngredient4
+  var ingredient5 = response.drinks[0].strIngredient5
+  var ingredient6 = response.drinks[0].strIngredient6
+  var ingredient7 = response.drinks[0].strIngredient7
+  var ingredient8 = response.drinks[0].strIngredient8
+  var ingredient9 = response.drinks[0].strIngredient9
+  var ingredient10 = response.drinks[0].strIngredient10
+  var ingredient11 = response.drinks[0].strIngredient11
+  var ingredient12 = response.drinks[0].strIngredient12
+  var ingredient13 = response.drinks[0].strIngredient13
+  var ingredient14 = response.drinks[0].strIngredient14
+  var ingredient15 = response.drinks[0].strIngredient15
+  var measure1 = response.drinks[0].strMeasure1
+  var measure2 = response.drinks[0].strMeasure2
+  var measure3 = response.drinks[0].strMeasure3
+  var measure4 = response.drinks[0].strMeasure4
+  var measure5 = response.drinks[0].strMeasure5
+  var measure6 = response.drinks[0].strMeasure6
+  var measure7 = response.drinks[0].strMeasure7
+  var measure8 = response.drinks[0].strMeasure8
+  var measure9 = response.drinks[0].strMeasure9
+  var measure10 = response.drinks[0].strMeasure10
+  var measure11 = response.drinks[0].strMeasure11
+  var measure12 = response.drinks[0].strMeasure12
+  var measure13 = response.drinks[0].strMeasure13
+  var measure14 = response.drinks[0].strMeasure14
+  var measure15 = response.drinks[0].strMeasure15
+
+
 });
 //ajax call settings for cocktail
 var settings = {
@@ -51,10 +83,41 @@ function  haveADrink(){
     console.log(response);
     var randomDrink = response.drinks[0].strDrink
     var randomDrinkImage = response.drinks[0].strDrinkThumb
+    var ingredient1 = response.drinks[0].strIngredient1
+    var ingredient2 = response.drinks[0].strIngredient2
+    var ingredient3 = response.drinks[0].strIngredient3
+    var ingredient4 = response.drinks[0].strIngredient4
+    var ingredient5 = response.drinks[0].strIngredient5
+    var ingredient6 = response.drinks[0].strIngredient6
+    var ingredient7 = response.drinks[0].strIngredient7
+    var ingredient8 = response.drinks[0].strIngredient8
+    var ingredient9 = response.drinks[0].strIngredient9
+    var ingredient10 = response.drinks[0].strIngredient10
+    var ingredient11 = response.drinks[0].strIngredient11
+    var ingredient12 = response.drinks[0].strIngredient12
+    var ingredient13 = response.drinks[0].strIngredient13
+    var ingredient14 = response.drinks[0].strIngredient14
+    var ingredient15 = response.drinks[0].strIngredient15
+    var measure1 = response.drinks[0].strMeasure1
+    var measure2 = response.drinks[0].strMeasure2
+    var measure3 = response.drinks[0].strMeasure3
+    var measure4 = response.drinks[0].strMeasure4
+    var measure5 = response.drinks[0].strMeasure5
+    var measure6 = response.drinks[0].strMeasure6
+    var measure7 = response.drinks[0].strMeasure7
+    var measure8 = response.drinks[0].strMeasure8
+    var measure9 = response.drinks[0].strMeasure9
+    var measure10 = response.drinks[0].strMeasure10
+    var measure11 = response.drinks[0].strMeasure11
+    var measure12 = response.drinks[0].strMeasure12
+    var measure13 = response.drinks[0].strMeasure13
+    var measure14 = response.drinks[0].strMeasure14
+    var measure15 = response.drinks[0].strMeasure15
+  
     $("#pic").attr("src", randomDrinkImage);
     $("#hiddenH4").text(randomDrink);
     $("#hiddenH4").show();
-    $("#name").hide();
+    $("#name").text("mix: " + measure1 + " of " + ingredient1 + "; " + measure2 + " of " + ingredient2 + "; " + measure3 + " of " + ingredient3 + "; " + measure4 + " of " + ingredient4 + "; " + measure5 + " of " + ingredient5 + "; " + measure6 + " of " + ingredient6 + "; " + measure7 + " of " + ingredient7 + "; " + measure8 + " of " + ingredient8 + "; " + measure9 + " of " + ingredient9 + "; " + measure10 + " of " + ingredient10 + "; " + measure11 + " of " + ingredient11 + "; " + measure12 + " of " + ingredient12 + "; " + measure13 + " of " + ingredient13 + "; " + measure14 + " of " + ingredient14 + "; " + measure15 + " of " + ingredient15);
   });
 }
 
