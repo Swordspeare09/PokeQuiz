@@ -27,7 +27,6 @@ $.ajax({
   url: tempPokemon,
   method: "GET"
 }).then(function(response) {
-  console.log(response);
 
   pokeName = response.name;
   $("#pic").attr("src", response.sprites.front_default);
