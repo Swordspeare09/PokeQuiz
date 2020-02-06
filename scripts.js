@@ -19,6 +19,9 @@ var secondsRemaining = 15;
 var randomPokeIndex = Math.floor((Math.random() * 151) + 1)
 var tempPokemon = "https://pokeapi.co/api/v2/pokemon/" + randomPokeIndex;
 var pokeName = "";
+var statusToggle = document.querySelector("#statusToggle");
+var toggleSpan = document.querySelector("#status");
+
 
 $.ajax({
   url: tempPokemon,
@@ -36,6 +39,17 @@ function beerTime() {
   if (status === "No") {
 //Run cocktail API after wrong answer
 }
+}
+//this will change the status text based on the check box status
+function toggleStatus(event) {
+  var checked = event.target.checked;
+
+  if (checked) {
+    status = "Yes";
+  } else {
+    status = "No";
+  }
+  toggleSpan.textContent = status;
 }
 
 //Event Listener for starting game
@@ -100,3 +114,5 @@ function startGame() {
       }
   }, 1000);
 } //---------------End of startGame function--------------
+
+statusToggle.addEventListener("change", toggleStatus);
