@@ -5,6 +5,7 @@ var tempPokemon = "https://pokeapi.co/api/v2/pokemon/" + randomPokeIndex;
 var pokeName = "";
 var statusToggle = document.querySelector("#statusToggle");
 var toggleSpan = document.querySelector("#status");
+var pokeImage = document.querySelector("#pic");
 //ajax call for pokemon
 $.ajax({
   url: tempPokemon,
@@ -14,6 +15,7 @@ $.ajax({
   pokeName = response.name
   $("#pic").attr("src", response.sprites.front_default);
   $("#name").text(pokeName);
+  
 });
 //ajax call for cocktail
 var settings = {

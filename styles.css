@@ -18,6 +18,11 @@ h3 {
   background-color: rgb(47, 233, 217);
   float: right;
 }
+#pic{
+  height: 200px;
+  width: 200px;
+
+}
 
 .timerDiv {
 
@@ -37,13 +42,32 @@ h3 {
   line-height: 0;
 }
 
+/* These are CSS values for shaking an image */
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
 
-
-.waves-effect {
-  background-color: rgb(47, 233, 217);
-  float: right;
+.apply-shake {
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    animation-iteration-count: infinite;
 }
 
 input {
   text-align: center;
+}
+
+.waves-effect {
+  background-color: rgb(47, 233, 217);
+  float: right;
 }
