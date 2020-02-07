@@ -73,6 +73,7 @@ $("#start-quiz").on("click", function() {
   $("#start-quiz").attr("style", "display: none");
   $("#quiz").attr("style", "display: block");
   $(".shown").hide();
+  $(".shownNoKid").hide();
 });
 
 $("#submit").on("click", function() {
@@ -125,6 +126,10 @@ function startGame() {
       // currentScore = 0
       $(".hidden").hide();
       $(".shown").show();
+      if ($("#status").text() === "No")
+      {
+        $(".shownNoKid").show();
+      }
       //removes the shake animation when the timer reaches 0
       pokeImage.classList.remove("apply-shake");
     }
