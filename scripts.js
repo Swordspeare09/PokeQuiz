@@ -6,16 +6,35 @@ var pokeName = "";
 var statusToggle = document.querySelector("#statusToggle");
 var toggleSpan = document.querySelector("#status");
 var pokeImage = document.querySelector("#pic");
+var randomDrink;
+var randomDrinkImage;
+var mixList = []
+var mix1;
+var mix2;
+var mix3;
+var mix4;
+var mix5;
+var mix6;
+var mix7;
+var mix8;
+var mix9;
+var mix10;
+var mix11;
+var mix12;
+var mix13;
+var mix14;
+var mix15;
+
 //ajax call for pokemon
 $.ajax({
   url: tempPokemon,
   method: "GET"
-}).then(function(response) {
+}).then(function (response) {
 
   pokeName = response.name
   $("#pic").attr("src", response.sprites.front_default);
   $("#name").text(pokeName);
-  
+
 });
 //ajax call for cocktail
 var settings = {
@@ -28,45 +47,6 @@ var settings = {
     "x-rapidapi-key": "ca6e01789emsh0efb5a3c9026fb0p14049fjsn4a80f2b8c012"
   }
 }
-$.ajax(settings).done(function (response) {
-  console.log(response);
-  var randomDrink = response.drinks[0].strDrink
-  console.log(randomDrink)
-  var randomDrinkImage = response.drinks[0].strDrinkThumb
-  console.log(randomDrinkImage)
-  var ingredient1 = response.drinks[0].strIngredient1
-  var ingredient2 = response.drinks[0].strIngredient2
-  var ingredient3 = response.drinks[0].strIngredient3
-  var ingredient4 = response.drinks[0].strIngredient4
-  var ingredient5 = response.drinks[0].strIngredient5
-  var ingredient6 = response.drinks[0].strIngredient6
-  var ingredient7 = response.drinks[0].strIngredient7
-  var ingredient8 = response.drinks[0].strIngredient8
-  var ingredient9 = response.drinks[0].strIngredient9
-  var ingredient10 = response.drinks[0].strIngredient10
-  var ingredient11 = response.drinks[0].strIngredient11
-  var ingredient12 = response.drinks[0].strIngredient12
-  var ingredient13 = response.drinks[0].strIngredient13
-  var ingredient14 = response.drinks[0].strIngredient14
-  var ingredient15 = response.drinks[0].strIngredient15
-  var measure1 = response.drinks[0].strMeasure1
-  var measure2 = response.drinks[0].strMeasure2
-  var measure3 = response.drinks[0].strMeasure3
-  var measure4 = response.drinks[0].strMeasure4
-  var measure5 = response.drinks[0].strMeasure5
-  var measure6 = response.drinks[0].strMeasure6
-  var measure7 = response.drinks[0].strMeasure7
-  var measure8 = response.drinks[0].strMeasure8
-  var measure9 = response.drinks[0].strMeasure9
-  var measure10 = response.drinks[0].strMeasure10
-  var measure11 = response.drinks[0].strMeasure11
-  var measure12 = response.drinks[0].strMeasure12
-  var measure13 = response.drinks[0].strMeasure13
-  var measure14 = response.drinks[0].strMeasure14
-  var measure15 = response.drinks[0].strMeasure15
-
-
-});
 //ajax call settings for cocktail
 var settings = {
   "async": true,
@@ -78,46 +58,123 @@ var settings = {
     "x-rapidapi-key": "ca6e01789emsh0efb5a3c9026fb0p14049fjsn4a80f2b8c012"
   }
 }
-function  haveADrink(){
+
+function haveADrink() {
   $.ajax(settings).done(function (response) {
     console.log(response);
-    var randomDrink = response.drinks[0].strDrink
-    var randomDrinkImage = response.drinks[0].strDrinkThumb
-    var ingredient1 = response.drinks[0].strIngredient1
-    var ingredient2 = response.drinks[0].strIngredient2
-    var ingredient3 = response.drinks[0].strIngredient3
-    var ingredient4 = response.drinks[0].strIngredient4
-    var ingredient5 = response.drinks[0].strIngredient5
-    var ingredient6 = response.drinks[0].strIngredient6
-    var ingredient7 = response.drinks[0].strIngredient7
-    var ingredient8 = response.drinks[0].strIngredient8
-    var ingredient9 = response.drinks[0].strIngredient9
-    var ingredient10 = response.drinks[0].strIngredient10
-    var ingredient11 = response.drinks[0].strIngredient11
-    var ingredient12 = response.drinks[0].strIngredient12
-    var ingredient13 = response.drinks[0].strIngredient13
-    var ingredient14 = response.drinks[0].strIngredient14
-    var ingredient15 = response.drinks[0].strIngredient15
-    var measure1 = response.drinks[0].strMeasure1
-    var measure2 = response.drinks[0].strMeasure2
-    var measure3 = response.drinks[0].strMeasure3
-    var measure4 = response.drinks[0].strMeasure4
-    var measure5 = response.drinks[0].strMeasure5
-    var measure6 = response.drinks[0].strMeasure6
-    var measure7 = response.drinks[0].strMeasure7
-    var measure8 = response.drinks[0].strMeasure8
-    var measure9 = response.drinks[0].strMeasure9
-    var measure10 = response.drinks[0].strMeasure10
-    var measure11 = response.drinks[0].strMeasure11
-    var measure12 = response.drinks[0].strMeasure12
-    var measure13 = response.drinks[0].strMeasure13
-    var measure14 = response.drinks[0].strMeasure14
-    var measure15 = response.drinks[0].strMeasure15
-  
+    randomDrinkImage = response.drinks[0].strDrinkThumb
+    randomDrink = response.drinks[0].strDrink
     $("#pic").attr("src", randomDrinkImage);
     $("#hiddenH4").text(randomDrink);
     $("#hiddenH4").show();
-    $("#name").text("mix: " + measure1 + " of " + ingredient1 + "; " + measure2 + " of " + ingredient2 + "; " + measure3 + " of " + ingredient3 + "; " + measure4 + " of " + ingredient4 + "; " + measure5 + " of " + ingredient5 + "; " + measure6 + " of " + ingredient6 + "; " + measure7 + " of " + ingredient7 + "; " + measure8 + " of " + ingredient8 + "; " + measure9 + " of " + ingredient9 + "; " + measure10 + " of " + ingredient10 + "; " + measure11 + " of " + ingredient11 + "; " + measure12 + " of " + ingredient12 + "; " + measure13 + " of " + ingredient13 + "; " + measure14 + " of " + ingredient14 + "; " + measure15 + " of " + ingredient15);
+    mixList = []
+
+    //Sorry, the free API is making this difficult!
+    if (response.drinks[0].strMeasure1 && response.drinks[0].strIngredient1 !== null) {
+      console.log(response.drinks[0].strMeasure1 + " " + response.drinks[0].strIngredient1)
+    } else if (response.drinks[0].strMeasure1 && response.drinks[0].strIngredient1 === null) {} else if (response.drinks[0].strMeasure1 === null && response.drinks[0].strIngredient1) {
+      console.log("Add " + response.drinks[0].strIngredient1 + " to taste")
+    } else {
+      return
+    }
+    if (response.drinks[0].strMeasure2 && response.drinks[0].strIngredient2 !== null) {
+      console.log(response.drinks[0].strMeasure2 + " " + response.drinks[0].strIngredient2)
+    } else if (response.drinks[0].strMeasure2 && response.drinks[0].strIngredient2 === null) {} else if (response.drinks[0].strMeasure2 === null && response.drinks[0].strIngredient2) {
+      console.log("Add " + response.drinks[0].strIngredient2 + " to taste")
+    } else {
+      return
+    }
+    if (response.drinks[0].strMeasure3 && response.drinks[0].strIngredient3 !== null) {
+      console.log(response.drinks[0].strMeasure3 + " " + response.drinks[0].strIngredient3)
+    } else if (response.drinks[0].strMeasure3 && response.drinks[0].strIngredient3 === null) {} else if (response.drinks[0].strMeasure3 === null && response.drinks[0].strIngredient3) {
+      console.log("Add " + response.drinks[0].strIngredient3 + " to taste")
+    } else {
+      return
+    }
+    if (response.drinks[0].strMeasure4 && response.drinks[0].strIngredient4 !== null) {
+      console.log(response.drinks[0].strMeasure4 + " " + response.drinks[0].strIngredient4)
+    } else if (response.drinks[0].strMeasure4 && response.drinks[0].strIngredient4 === null) {} else if (response.drinks[0].strMeasure4 === null && response.drinks[0].strIngredient4) {
+      console.log("Add " + response.drinks[0].strIngredient4 + " to taste")
+    } else {
+      return
+    }
+    if (response.drinks[0].strMeasure5 && response.drinks[0].strIngredient5 !== null) {
+      console.log(response.drinks[0].strMeasure5 + " " + response.drinks[0].strIngredient5)
+    } else if (response.drinks[0].strMeasure5 && response.drinks[0].strIngredient5 === null) {} else if (response.drinks[0].strMeasure5 === null && response.drinks[0].strIngredient5) {
+      console.log("Add " + response.drinks[0].strIngredient5 + " to taste")
+    } else {
+      return
+    }
+    if (response.drinks[0].strMeasure6 && response.drinks[0].strIngredient6 !== null) {
+      console.log(response.drinks[0].strMeasure6 + " " + response.drinks[0].strIngredient6)
+    } else if (response.drinks[0].strMeasure6 && response.drinks[0].strIngredient6 === null) {} else if (response.drinks[0].strMeasure6 === null && response.drinks[0].strIngredient6) {
+      console.log("Add " + response.drinks[0].strIngredient6 + " to taste")
+    } else {
+      return
+    }
+    if (response.drinks[0].strMeasure7 && response.drinks[0].strIngredient7 !== null) {
+      console.log(response.drinks[0].strMeasure7 + " " + response.drinks[0].strIngredient7)
+    } else if (response.drinks[0].strMeasure7 && response.drinks[0].strIngredient7 === null) {} else if (response.drinks[0].strMeasure7 === null && response.drinks[0].strIngredient7) {
+      console.log("Add " + response.drinks[0].strIngredient7 + " to taste")
+    } else {
+      return
+    }
+    if (response.drinks[0].strMeasure8 && response.drinks[0].strIngredient8 !== null) {
+      console.log(response.drinks[0].strMeasure8 + " " + response.drinks[0].strIngredient8)
+    } else if (response.drinks[0].strMeasure8 && response.drinks[0].strIngredient8 === null) {} else if (response.drinks[0].strMeasure8 === null && response.drinks[0].strIngredient8) {
+      console.log("Add " + response.drinks[0].strIngredient8 + " to taste")
+    } else {
+      return
+    }
+    if (response.drinks[0].strMeasure9 && response.drinks[0].strIngredient9 !== null) {
+      console.log(response.drinks[0].strMeasure9 + " " + response.drinks[0].strIngredient9)
+    } else if (response.drinks[0].strMeasure9 && response.drinks[0].strIngredient9 === null) {} else if (response.drinks[0].strMeasure9 === null && response.drinks[0].strIngredient9) {
+      console.log("Add " + response.drinks[0].strIngredient9 + " to taste")
+    } else {
+      return
+    }
+    if (response.drinks[0].strMeasure10 && response.drinks[0].strIngredient10 !== null) {
+      console.log(response.drinks[0].strMeasure10 + " " + response.drinks[0].strIngredient10)
+    } else if (response.drinks[0].strMeasure10 && response.drinks[0].strIngredient10 === null) {} else if (response.drinks[0].strMeasure10 === null && response.drinks[0].strIngredient10) {
+      console.log("Add " + response.drinks[0].strIngredient10 + " to taste")
+    } else {
+      return
+    }
+    if (response.drinks[0].strMeasure11 && response.drinks[0].strIngredient11 !== null) {
+      console.log(response.drinks[0].strMeasure11 + " " + response.drinks[0].strIngredient11)
+    } else if (response.drinks[0].strMeasure11 && response.drinks[0].strIngredient11 === null) {} else if (response.drinks[0].strMeasure11 === null && response.drinks[0].strIngredient11) {
+      console.log("Add " + response.drinks[0].strIngredient11 + " to taste")
+    } else {
+      return
+    }
+    if (response.drinks[0].strMeasure12 && response.drinks[0].strIngredient12 !== null) {
+      console.log(response.drinks[0].strMeasure12 + " " + response.drinks[0].strIngredient12)
+    } else if (response.drinks[0].strMeasure12 && response.drinks[0].strIngredient12 === null) {} else if (response.drinks[0].strMeasure12 === null && response.drinks[0].strIngredient12) {
+      console.log("Add " + response.drinks[0].strIngredient12 + " to taste")
+    } else {
+      return
+    }
+    if (response.drinks[0].strMeasure13 && response.drinks[0].strIngredient13 !== null) {
+      console.log(response.drinks[0].strMeasure13 + " " + response.drinks[0].strIngredient13)
+    } else if (response.drinks[0].strMeasure13 && response.drinks[0].strIngredient13 === null) {} else if (response.drinks[0].strMeasure13 === null && response.drinks[0].strIngredient13) {
+      console.log("Add " + response.drinks[0].strIngredient13 + " to taste")
+    } else {
+      return
+    }
+    if (response.drinks[0].strMeasure14 && response.drinks[0].strIngredient14 !== null) {
+      console.log(response.drinks[0].strMeasure14 + " " + response.drinks[0].strIngredient14)
+    } else if (response.drinks[0].strMeasure14 && response.drinks[0].strIngredient14 === null) {} else if (response.drinks[0].strMeasure14 === null && response.drinks[0].strIngredient14) {
+      console.log("Add " + response.drinks[0].strIngredient14 + " to taste")
+    } else {
+      return
+    }
+    if (response.drinks[0].strMeasure15 && response.drinks[0].strIngredient15 !== null) {
+      console.log(response.drinks[0].strMeasure15 + " " + response.drinks[0].strIngredient15)
+    } else if (response.drinks[0].strMeasure15 && response.drinks[0].strIngredient15 === null) {} else if (response.drinks[0].strMeasure15 === null && response.drinks[0].strIngredient15) {
+      console.log("Add " + response.drinks[0].strIngredient15 + " to taste")
+    } else {
+      return
+    }
   });
 }
 
@@ -142,7 +199,7 @@ function beerTime() {
 }
 
 //Event Listener for starting game
-$("#start-quiz").on("click", function() {
+$("#start-quiz").on("click", function () {
   startGame();
   $("#start-quiz").attr("style", "display: none");
   $("#quiz").attr("style", "display: block");
@@ -151,7 +208,7 @@ $("#start-quiz").on("click", function() {
   $("#answer").attr("maxlength", pokeName.length);
 });
 
-$("#submit").on("click", function() {
+$("#submit").on("click", function () {
   var submittedAnswer = $("#answer").val();
 
   //This makes the input lowercase for easily checking the user answer
@@ -186,7 +243,7 @@ function startGame() {
   $(".hidden").show();
   //timer will start counting down from 15 seconds and continue until time runs out or all questions answered
   secondsRemaining = 15;
-  var timerInterval = setInterval(function() {
+  var timerInterval = setInterval(function () {
     secondsRemaining--;
     pokeImage.classList.remove("apply-shake");
     // timer will run until it reaches 0 seconds or all questions are answered
