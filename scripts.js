@@ -129,6 +129,7 @@ function startGame() {
 
 statusToggle.addEventListener("change", toggleStatus);
 
+//Event Listener for checking answer when enter key is pressed
 var input = document.getElementById("answer");
 
 input.addEventListener("keyup", function (event) {
@@ -136,7 +137,6 @@ input.addEventListener("keyup", function (event) {
   if (event.keyCode === 13) {
     
     event.preventDefault();
-    console.log("hello!");
     document.getElementById("submit").click();
 
   }
