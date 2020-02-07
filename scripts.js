@@ -8,7 +8,6 @@ var toggleSpan = document.querySelector("#status");
 var pokeImage = document.querySelector("#pic");
 var randomDrink;
 var randomDrinkImage;
-var mixList = []
 var mix1;
 var mix2;
 var mix3;
@@ -67,114 +66,146 @@ function haveADrink() {
     $("#pic").attr("src", randomDrinkImage);
     $("#hiddenH4").text(randomDrink);
     $("#hiddenH4").show();
-    mixList = []
-
+    $("#name").text("")
+    
+    
     //Sorry, the free API is making this difficult!
     if (response.drinks[0].strMeasure1 && response.drinks[0].strIngredient1 !== null) {
-      console.log(response.drinks[0].strMeasure1 + " " + response.drinks[0].strIngredient1)
+      mix1 = $("<p>").text(response.drinks[0].strMeasure1 + " " + response.drinks[0].strIngredient1)
     } else if (response.drinks[0].strMeasure1 && response.drinks[0].strIngredient1 === null) {} else if (response.drinks[0].strMeasure1 === null && response.drinks[0].strIngredient1) {
-      console.log("Add " + response.drinks[0].strIngredient1 + " to taste")
+      mix1 = $("<p>").text("Add " + response.drinks[0].strIngredient1 + " to taste")
     } else {
       return
     }
+        $("#name").append(mix1)
+
+    $("#name").append(mix1)
     if (response.drinks[0].strMeasure2 && response.drinks[0].strIngredient2 !== null) {
-      console.log(response.drinks[0].strMeasure2 + " " + response.drinks[0].strIngredient2)
+      mix2 = $("<p>").text(response.drinks[0].strMeasure2 + " " + response.drinks[0].strIngredient2)
     } else if (response.drinks[0].strMeasure2 && response.drinks[0].strIngredient2 === null) {} else if (response.drinks[0].strMeasure2 === null && response.drinks[0].strIngredient2) {
-      console.log("Add " + response.drinks[0].strIngredient2 + " to taste")
+      mix2 = $("<p>").text("Add " + response.drinks[0].strIngredient2 + " to taste")
     } else {
       return
     }
+        $("#name").append(mix2)
+
     if (response.drinks[0].strMeasure3 && response.drinks[0].strIngredient3 !== null) {
-      console.log(response.drinks[0].strMeasure3 + " " + response.drinks[0].strIngredient3)
+      mix3 = $("<p>").text(response.drinks[0].strMeasure3 + " " + response.drinks[0].strIngredient3)
     } else if (response.drinks[0].strMeasure3 && response.drinks[0].strIngredient3 === null) {} else if (response.drinks[0].strMeasure3 === null && response.drinks[0].strIngredient3) {
-      console.log("Add " + response.drinks[0].strIngredient3 + " to taste")
+      mix3 = $("<p>").text("Add " + response.drinks[0].strIngredient3 + " to taste")
     } else {
       return
     }
+        $("#name").append(mix3)
+
     if (response.drinks[0].strMeasure4 && response.drinks[0].strIngredient4 !== null) {
-      console.log(response.drinks[0].strMeasure4 + " " + response.drinks[0].strIngredient4)
+      mix4 = $("<p>").text(response.drinks[0].strMeasure4 + " " + response.drinks[0].strIngredient4)
     } else if (response.drinks[0].strMeasure4 && response.drinks[0].strIngredient4 === null) {} else if (response.drinks[0].strMeasure4 === null && response.drinks[0].strIngredient4) {
-      console.log("Add " + response.drinks[0].strIngredient4 + " to taste")
+      mix4 = $("<p>").text("Add " + response.drinks[0].strIngredient4 + " to taste")
     } else {
       return
     }
+        $("#name").append(mix4)
+
     if (response.drinks[0].strMeasure5 && response.drinks[0].strIngredient5 !== null) {
-      console.log(response.drinks[0].strMeasure5 + " " + response.drinks[0].strIngredient5)
+      mix5 = $("<p>").text(response.drinks[0].strMeasure5 + " " + response.drinks[0].strIngredient5)
     } else if (response.drinks[0].strMeasure5 && response.drinks[0].strIngredient5 === null) {} else if (response.drinks[0].strMeasure5 === null && response.drinks[0].strIngredient5) {
-      console.log("Add " + response.drinks[0].strIngredient5 + " to taste")
+      mix5 = $("<p>").text("Add " + response.drinks[0].strIngredient5 + " to taste")
     } else {
       return
     }
+        $("#name").append(mix5)
+
     if (response.drinks[0].strMeasure6 && response.drinks[0].strIngredient6 !== null) {
-      console.log(response.drinks[0].strMeasure6 + " " + response.drinks[0].strIngredient6)
+      mix6 = $("<p>").text(response.drinks[0].strMeasure6 + " " + response.drinks[0].strIngredient6)
     } else if (response.drinks[0].strMeasure6 && response.drinks[0].strIngredient6 === null) {} else if (response.drinks[0].strMeasure6 === null && response.drinks[0].strIngredient6) {
-      console.log("Add " + response.drinks[0].strIngredient6 + " to taste")
+      mix6 = $("<p>").text("Add " + response.drinks[0].strIngredient6 + " to taste")
     } else {
       return
     }
+        $("#name").append(mix6)
+
     if (response.drinks[0].strMeasure7 && response.drinks[0].strIngredient7 !== null) {
-      console.log(response.drinks[0].strMeasure7 + " " + response.drinks[0].strIngredient7)
+      mix7 = $("<p>").text(response.drinks[0].strMeasure7 + " " + response.drinks[0].strIngredient7)
     } else if (response.drinks[0].strMeasure7 && response.drinks[0].strIngredient7 === null) {} else if (response.drinks[0].strMeasure7 === null && response.drinks[0].strIngredient7) {
-      console.log("Add " + response.drinks[0].strIngredient7 + " to taste")
+      mix7 = $("<p>").text("Add " + response.drinks[0].strIngredient7 + " to taste")
     } else {
       return
     }
+        $("#name").append(mix7)
+
     if (response.drinks[0].strMeasure8 && response.drinks[0].strIngredient8 !== null) {
-      console.log(response.drinks[0].strMeasure8 + " " + response.drinks[0].strIngredient8)
+      mix8 = $("<p>").text(response.drinks[0].strMeasure8 + " " + response.drinks[0].strIngredient8)
     } else if (response.drinks[0].strMeasure8 && response.drinks[0].strIngredient8 === null) {} else if (response.drinks[0].strMeasure8 === null && response.drinks[0].strIngredient8) {
-      console.log("Add " + response.drinks[0].strIngredient8 + " to taste")
+      mix8 = $("<p>").text("Add " + response.drinks[0].strIngredient8 + " to taste")
     } else {
       return
     }
+        $("#name").append(mix8)
+
     if (response.drinks[0].strMeasure9 && response.drinks[0].strIngredient9 !== null) {
-      console.log(response.drinks[0].strMeasure9 + " " + response.drinks[0].strIngredient9)
+      mix9 = $("<p>").text(response.drinks[0].strMeasure9 + " " + response.drinks[0].strIngredient9)
     } else if (response.drinks[0].strMeasure9 && response.drinks[0].strIngredient9 === null) {} else if (response.drinks[0].strMeasure9 === null && response.drinks[0].strIngredient9) {
-      console.log("Add " + response.drinks[0].strIngredient9 + " to taste")
+      mix9 = $("<p>").text("Add " + response.drinks[0].strIngredient9 + " to taste")
     } else {
       return
     }
+        $("#name").append(mix9)
+
     if (response.drinks[0].strMeasure10 && response.drinks[0].strIngredient10 !== null) {
-      console.log(response.drinks[0].strMeasure10 + " " + response.drinks[0].strIngredient10)
+      mix10 = $("<p>").text(response.drinks[0].strMeasure10 + " " + response.drinks[0].strIngredient10)
     } else if (response.drinks[0].strMeasure10 && response.drinks[0].strIngredient10 === null) {} else if (response.drinks[0].strMeasure10 === null && response.drinks[0].strIngredient10) {
-      console.log("Add " + response.drinks[0].strIngredient10 + " to taste")
+      mix10 = $("<p>").text("Add " + response.drinks[0].strIngredient10 + " to taste")
     } else {
       return
     }
+        $("#name").append(mix10)
+
     if (response.drinks[0].strMeasure11 && response.drinks[0].strIngredient11 !== null) {
-      console.log(response.drinks[0].strMeasure11 + " " + response.drinks[0].strIngredient11)
+      mix11 = $("<p>").text(response.drinks[0].strMeasure11 + " " + response.drinks[0].strIngredient11)
     } else if (response.drinks[0].strMeasure11 && response.drinks[0].strIngredient11 === null) {} else if (response.drinks[0].strMeasure11 === null && response.drinks[0].strIngredient11) {
-      console.log("Add " + response.drinks[0].strIngredient11 + " to taste")
+      mix11 = $("<p>").text("Add " + response.drinks[0].strIngredient11 + " to taste")
     } else {
       return
     }
+        $("#name").append(mix11)
+
     if (response.drinks[0].strMeasure12 && response.drinks[0].strIngredient12 !== null) {
-      console.log(response.drinks[0].strMeasure12 + " " + response.drinks[0].strIngredient12)
+      mix12 = $("<p>").text(response.drinks[0].strMeasure12 + " " + response.drinks[0].strIngredient12)
     } else if (response.drinks[0].strMeasure12 && response.drinks[0].strIngredient12 === null) {} else if (response.drinks[0].strMeasure12 === null && response.drinks[0].strIngredient12) {
-      console.log("Add " + response.drinks[0].strIngredient12 + " to taste")
+      mix12 = $("<p>").text("Add " + response.drinks[0].strIngredient12 + " to taste")
     } else {
       return
     }
+        $("#name").append(mix12)
+
     if (response.drinks[0].strMeasure13 && response.drinks[0].strIngredient13 !== null) {
-      console.log(response.drinks[0].strMeasure13 + " " + response.drinks[0].strIngredient13)
+      mix13 = $("<p>").text(response.drinks[0].strMeasure13 + " " + response.drinks[0].strIngredient13)
     } else if (response.drinks[0].strMeasure13 && response.drinks[0].strIngredient13 === null) {} else if (response.drinks[0].strMeasure13 === null && response.drinks[0].strIngredient13) {
-      console.log("Add " + response.drinks[0].strIngredient13 + " to taste")
+      mix13 = $("<p>").text("Add " + response.drinks[0].strIngredient13 + " to taste")
     } else {
       return
     }
+        $("#name").append(mix13)
+
     if (response.drinks[0].strMeasure14 && response.drinks[0].strIngredient14 !== null) {
-      console.log(response.drinks[0].strMeasure14 + " " + response.drinks[0].strIngredient14)
+      mix14 = $("<p>").text(response.drinks[0].strMeasure14 + " " + response.drinks[0].strIngredient14)
     } else if (response.drinks[0].strMeasure14 && response.drinks[0].strIngredient14 === null) {} else if (response.drinks[0].strMeasure14 === null && response.drinks[0].strIngredient14) {
-      console.log("Add " + response.drinks[0].strIngredient14 + " to taste")
+      mix14 = $("<p>").text("Add " + response.drinks[0].strIngredient14 + " to taste")
     } else {
       return
     }
+        $("#name").append(mix14)
+
     if (response.drinks[0].strMeasure15 && response.drinks[0].strIngredient15 !== null) {
-      console.log(response.drinks[0].strMeasure15 + " " + response.drinks[0].strIngredient15)
+      mix15 = $("<p>").text(response.drinks[0].strMeasure15 + " " + response.drinks[0].strIngredient15)
     } else if (response.drinks[0].strMeasure15 && response.drinks[0].strIngredient15 === null) {} else if (response.drinks[0].strMeasure15 === null && response.drinks[0].strIngredient15) {
-      console.log("Add " + response.drinks[0].strIngredient15 + " to taste")
+      mix15 = $("<p>").text("Add " + response.drinks[0].strIngredient15 + " to taste")
     } else {
       return
     }
+        $("#name").append(mix15)
+
   });
 }
 
