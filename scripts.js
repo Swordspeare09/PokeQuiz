@@ -1,22 +1,12 @@
 //---------------_______________---------------Variables---------------_______________---------------
 var secondsRemaining = 15;
-var randomPokeIndex = Math.floor(Math.random() * 151 + 1);
-var tempPokemon = "https://pokeapi.co/api/v2/pokemon/" + randomPokeIndex;
-var pokeName = "";
+var randomPokeIndex;
+var tempPokemon = "";
+var pokeName;
 var statusToggle = document.querySelector("#statusToggle");
 var toggleSpan = document.querySelector("#status");
 var pokeImage = document.querySelector("#pic");
-//ajax call for pokemon
-$.ajax({
-  url: tempPokemon,
-  method: "GET"
-}).then(function(response) {
 
-  pokeName = response.name
-  $("#pic").attr("src", response.sprites.front_default);
-  $("#name").text(pokeName);
-  
-});
 
 //ajax call settings for cocktail
 var settings = {
@@ -63,12 +53,27 @@ function beerTime() {
 
 //Event Listener for starting game
 $("#start-quiz").on("click", function() {
+
+  //Calls for a new random pokemon from API after every start 
+  randomPokeIndex = Math.floor((Math.random()*150) +1);
+  tempPokemon = "https://pokeapi.co/api/v2/pokemon/" + randomPokeIndex;
+  $.ajax({
+    url: tempPokemon,
+    method: "GET"
+  }).then(function (response) {
+
+    pokeName = response.name
+    $("#pic").attr("src", response.sprites.front_default);
+    $("#name").text(pokeName);
+    //This limits the amount of charcters the user can input to match the size of the pokemon name
+    $("#answer").attr("maxlength", pokeName.length);
+  });
   startGame();
+  $("#hiddenH4").text("Seconds");
   $("#start-quiz").attr("style", "display: none");
   $("#quiz").attr("style", "display: block");
   $(".shown").hide();
-  //This limits the amount of charcters the user can input to match the size of the pokemon name
-  $("#answer").attr("maxlength", pokeName.length);
+  $(".shownNoKid").hide();
 });
 
 $("#submit").on("click", function() {
@@ -121,6 +126,10 @@ function startGame() {
       // currentScore = 0
       $(".hidden").hide();
       $(".shown").show();
+      if ($("#status").text() === "No")
+      {
+        $(".shownNoKid").show();
+      }
       //removes the shake animation when the timer reaches 0
       pokeImage.classList.remove("apply-shake");
     }
@@ -136,10 +145,20 @@ input.addEventListener("keyup", function (event) {
 
   if (event.keyCode === 13) {
     
-    event.preventDefault();
+    // event.preventDefault();
     document.getElementById("submit").click();
 
   }
 
 })
 
+var mainMenu = $("#mainMenu");
+
+mainMenu.on("click", function(){
+
+  $("#start-quiz").attr("style", "display: block");
+  $("#quiz").attr("style", "display: none");
+  //Clears out previous inputs
+  $("#answer").val("");
+
+})
