@@ -23,7 +23,6 @@ var mix12;
 var mix13;
 var mix14;
 var mix15;
-
 //ajax call for pokemon
 $.ajax({
   url: tempPokemon,
@@ -57,7 +56,7 @@ var settings = {
     "x-rapidapi-key": "ca6e01789emsh0efb5a3c9026fb0p14049fjsn4a80f2b8c012"
   }
 }
-
+//this function calls API to get random drink and replace pokemon info with drink image, name and mixture.
 function haveADrink() {
   $.ajax(settings).done(function (response) {
     console.log(response);
@@ -67,8 +66,6 @@ function haveADrink() {
     $("#hiddenH4").text(randomDrink);
     $("#hiddenH4").show();
     $("#name").text("")
-    
-    
     //Sorry, the free API is making this difficult!
     if (response.drinks[0].strMeasure1 && response.drinks[0].strIngredient1 !== null) {
       mix1 = $("<p>").text(response.drinks[0].strMeasure1 + " " + response.drinks[0].strIngredient1)
@@ -77,9 +74,8 @@ function haveADrink() {
     } else {
       return
     }
-        $("#name").append(mix1)
-
     $("#name").append(mix1)
+    
     if (response.drinks[0].strMeasure2 && response.drinks[0].strIngredient2 !== null) {
       mix2 = $("<p>").text(response.drinks[0].strMeasure2 + " " + response.drinks[0].strIngredient2)
     } else if (response.drinks[0].strMeasure2 && response.drinks[0].strIngredient2 === null) {} else if (response.drinks[0].strMeasure2 === null && response.drinks[0].strIngredient2) {
@@ -87,7 +83,7 @@ function haveADrink() {
     } else {
       return
     }
-        $("#name").append(mix2)
+    $("#name").append(mix2)
 
     if (response.drinks[0].strMeasure3 && response.drinks[0].strIngredient3 !== null) {
       mix3 = $("<p>").text(response.drinks[0].strMeasure3 + " " + response.drinks[0].strIngredient3)
@@ -96,7 +92,7 @@ function haveADrink() {
     } else {
       return
     }
-        $("#name").append(mix3)
+    $("#name").append(mix3)
 
     if (response.drinks[0].strMeasure4 && response.drinks[0].strIngredient4 !== null) {
       mix4 = $("<p>").text(response.drinks[0].strMeasure4 + " " + response.drinks[0].strIngredient4)
@@ -105,7 +101,7 @@ function haveADrink() {
     } else {
       return
     }
-        $("#name").append(mix4)
+    $("#name").append(mix4)
 
     if (response.drinks[0].strMeasure5 && response.drinks[0].strIngredient5 !== null) {
       mix5 = $("<p>").text(response.drinks[0].strMeasure5 + " " + response.drinks[0].strIngredient5)
@@ -114,7 +110,7 @@ function haveADrink() {
     } else {
       return
     }
-        $("#name").append(mix5)
+    $("#name").append(mix5)
 
     if (response.drinks[0].strMeasure6 && response.drinks[0].strIngredient6 !== null) {
       mix6 = $("<p>").text(response.drinks[0].strMeasure6 + " " + response.drinks[0].strIngredient6)
@@ -123,7 +119,7 @@ function haveADrink() {
     } else {
       return
     }
-        $("#name").append(mix6)
+    $("#name").append(mix6)
 
     if (response.drinks[0].strMeasure7 && response.drinks[0].strIngredient7 !== null) {
       mix7 = $("<p>").text(response.drinks[0].strMeasure7 + " " + response.drinks[0].strIngredient7)
@@ -132,7 +128,7 @@ function haveADrink() {
     } else {
       return
     }
-        $("#name").append(mix7)
+    $("#name").append(mix7)
 
     if (response.drinks[0].strMeasure8 && response.drinks[0].strIngredient8 !== null) {
       mix8 = $("<p>").text(response.drinks[0].strMeasure8 + " " + response.drinks[0].strIngredient8)
@@ -141,7 +137,7 @@ function haveADrink() {
     } else {
       return
     }
-        $("#name").append(mix8)
+    $("#name").append(mix8)
 
     if (response.drinks[0].strMeasure9 && response.drinks[0].strIngredient9 !== null) {
       mix9 = $("<p>").text(response.drinks[0].strMeasure9 + " " + response.drinks[0].strIngredient9)
@@ -150,7 +146,7 @@ function haveADrink() {
     } else {
       return
     }
-        $("#name").append(mix9)
+    $("#name").append(mix9)
 
     if (response.drinks[0].strMeasure10 && response.drinks[0].strIngredient10 !== null) {
       mix10 = $("<p>").text(response.drinks[0].strMeasure10 + " " + response.drinks[0].strIngredient10)
@@ -159,7 +155,7 @@ function haveADrink() {
     } else {
       return
     }
-        $("#name").append(mix10)
+    $("#name").append(mix10)
 
     if (response.drinks[0].strMeasure11 && response.drinks[0].strIngredient11 !== null) {
       mix11 = $("<p>").text(response.drinks[0].strMeasure11 + " " + response.drinks[0].strIngredient11)
@@ -168,7 +164,7 @@ function haveADrink() {
     } else {
       return
     }
-        $("#name").append(mix11)
+    $("#name").append(mix11)
 
     if (response.drinks[0].strMeasure12 && response.drinks[0].strIngredient12 !== null) {
       mix12 = $("<p>").text(response.drinks[0].strMeasure12 + " " + response.drinks[0].strIngredient12)
@@ -177,7 +173,7 @@ function haveADrink() {
     } else {
       return
     }
-        $("#name").append(mix12)
+    $("#name").append(mix12)
 
     if (response.drinks[0].strMeasure13 && response.drinks[0].strIngredient13 !== null) {
       mix13 = $("<p>").text(response.drinks[0].strMeasure13 + " " + response.drinks[0].strIngredient13)
@@ -186,7 +182,7 @@ function haveADrink() {
     } else {
       return
     }
-        $("#name").append(mix13)
+    $("#name").append(mix13)
 
     if (response.drinks[0].strMeasure14 && response.drinks[0].strIngredient14 !== null) {
       mix14 = $("<p>").text(response.drinks[0].strMeasure14 + " " + response.drinks[0].strIngredient14)
@@ -195,7 +191,7 @@ function haveADrink() {
     } else {
       return
     }
-        $("#name").append(mix14)
+    $("#name").append(mix14)
 
     if (response.drinks[0].strMeasure15 && response.drinks[0].strIngredient15 !== null) {
       mix15 = $("<p>").text(response.drinks[0].strMeasure15 + " " + response.drinks[0].strIngredient15)
@@ -204,11 +200,10 @@ function haveADrink() {
     } else {
       return
     }
-        $("#name").append(mix15)
+    $("#name").append(mix15)
 
   });
 }
-
 //this will change the status text based on the check box status
 function toggleStatus(event) {
   var checked = event.target.checked;
