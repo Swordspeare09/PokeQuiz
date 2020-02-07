@@ -34,6 +34,7 @@ $.ajax({
   $("#name").text(pokeName);
 
 });
+<<<<<<< HEAD
 //ajax call for cocktail
 var settings = {
   "async": true,
@@ -45,6 +46,9 @@ var settings = {
     "x-rapidapi-key": "ca6e01789emsh0efb5a3c9026fb0p14049fjsn4a80f2b8c012"
   }
 }
+=======
+
+>>>>>>> master
 //ajax call settings for cocktail
 var settings = {
   "async": true,
@@ -290,4 +294,23 @@ function startGame() {
   }, 1000);
 } //---------------End of startGame function--------------
 
+<<<<<<< HEAD
 statusToggle.addEventListener("change", toggleStatus);
+=======
+statusToggle.addEventListener("change", toggleStatus);
+
+//Event Listener for checking answer when enter key is pressed
+var input = document.getElementById("answer");
+
+input.addEventListener("keyup", function (event) {
+
+  if (event.keyCode === 13) {
+    
+    event.preventDefault();
+    document.getElementById("submit").click();
+
+  }
+
+})
+
+>>>>>>> master

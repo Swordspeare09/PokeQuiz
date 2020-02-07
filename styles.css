@@ -63,8 +63,9 @@ h3 {
     animation-iteration-count: infinite;
 }
 
-input {
+#answer{
   text-align: center;
+  width:50%;
 }
 
 .waves-effect {
