@@ -17,24 +17,7 @@ $.ajax({
   $("#name").text(pokeName);
   
 });
-//ajax call for cocktail
-var settings = {
-  "async": true,
-  "crossDomain": true,
-  "url": "https://the-cocktail-db.p.rapidapi.com/random.php",
-  "method": "GET",
-  "headers": {
-    "x-rapidapi-host": "the-cocktail-db.p.rapidapi.com",
-    "x-rapidapi-key": "ca6e01789emsh0efb5a3c9026fb0p14049fjsn4a80f2b8c012"
-  }
-}
-$.ajax(settings).done(function (response) {
-  console.log(response);
-  var randomDrink = response.drinks[0].strDrink
-  console.log(randomDrink)
-  var randomDrinkImage = response.drinks[0].strDrinkThumb
-  console.log(randomDrinkImage)
-});
+
 //ajax call settings for cocktail
 var settings = {
   "async": true,
@@ -145,3 +128,18 @@ function startGame() {
 } //---------------End of startGame function--------------
 
 statusToggle.addEventListener("change", toggleStatus);
+
+//Event Listener for checking answer when enter key is pressed
+var input = document.getElementById("answer");
+
+input.addEventListener("keyup", function (event) {
+
+  if (event.keyCode === 13) {
+    
+    event.preventDefault();
+    document.getElementById("submit").click();
+
+  }
+
+})
+
