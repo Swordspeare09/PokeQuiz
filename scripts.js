@@ -41,10 +41,9 @@ function haveADrink() {
     randomDrinkImage = response.drinks[0].strDrinkThumb
     randomDrink = response.drinks[0].strDrink
     $("#pic").attr("src", randomDrinkImage);
-    $("#hiddenH4").text("Try this: " + randomDrink);
-    $("#hiddenH4").show();
     $("#name").text("")
-    //Sorry, the free API is making this difficult!
+    $("#name").append($("<p>").text("Try this: " + randomDrink))
+    //Sorry, the free API is making this difficult!, random drink measures and ingredients appended to screen
     if (response.drinks[0].strMeasure1 && response.drinks[0].strIngredient1 !== null) {
       mix1 = $("<p>").text(response.drinks[0].strMeasure1 + " " + response.drinks[0].strIngredient1)
     } else if (response.drinks[0].strMeasure1 && response.drinks[0].strIngredient1 === null) {} else if (response.drinks[0].strMeasure1 === null && response.drinks[0].strIngredient1) {

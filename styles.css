@@ -1,5 +1,5 @@
 body{
-  background-color: #d32f2f;
+  background-color: white;
 }
 
 #start-menu {
@@ -92,4 +92,8 @@ h3 {
 .waves-effect {
   background-color: rgb(47, 233, 217);
   float: right;
+}
+
+.redSpace{
+background-color: #d32f2f;
 }
