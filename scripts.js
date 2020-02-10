@@ -52,7 +52,7 @@ function haveADrink() {
       return
     }
     $("#name").append(mix1)
-    
+
     if (response.drinks[0].strMeasure2 && response.drinks[0].strIngredient2 !== null) {
       mix2 = $("<p>").text(response.drinks[0].strMeasure2 + " " + response.drinks[0].strIngredient2)
     } else if (response.drinks[0].strMeasure2 && response.drinks[0].strIngredient2 === null) {} else if (response.drinks[0].strMeasure2 === null && response.drinks[0].strIngredient2) {
@@ -202,10 +202,10 @@ function beerTime() {
 }
 
 //Event Listener for starting game
-$("#start-quiz").on("click", function() {
+$("#start-quiz").on("click", function () {
 
   //Calls for a new random pokemon from API after every start 
-  randomPokeIndex = Math.floor((Math.random()*150) +1);
+  randomPokeIndex = Math.floor((Math.random() * 150) + 1);
   tempPokemon = "https://pokeapi.co/api/v2/pokemon/" + randomPokeIndex;
   $.ajax({
     url: tempPokemon,
@@ -276,8 +276,7 @@ function startGame() {
       // currentScore = 0
       $(".hidden").hide();
       $(".shown").show();
-      if ($("#status").text() === "No")
-      {
+      if ($("#status").text() === "No") {
         $(".shownNoKid").show();
       }
       //removes the shake animation when the timer reaches 0
@@ -294,7 +293,7 @@ var input = document.getElementById("answer");
 input.addEventListener("keyup", function (event) {
 
   if (event.keyCode === 13) {
-    
+
     // event.preventDefault();
     document.getElementById("submit").click();
 
@@ -304,7 +303,7 @@ input.addEventListener("keyup", function (event) {
 
 var mainMenu = $("#mainMenu");
 
-mainMenu.on("click", function(){
+mainMenu.on("click", function () {
 
   $("#start-quiz").attr("style", "display: block");
   $("#quiz").attr("style", "display: none");
