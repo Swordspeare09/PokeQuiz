@@ -11,3 +11,5 @@ At the start of game, the application calls the POKeAPI and gets back informatio
 If the user has chosen to turn kid friendly mode off, the user’s options will be different after the game is over. In addition to a main menu button, the user will be presented with an option called "drink'. When this button is pressed, the application will make a call to the CocktaiDB api and will display an image of a random drink along with the name of the drink. The user will also be presented with a list of the ingredients to make the presented drink, as well as the correct measurements of the required ingredients. If the user wishes to try another random drink, all they need to do is click the “drink” button to display a different random drink. 
 
 Try PokeQuiz today!
+
+https://swordspeare09.github.io/Project1
